@@ -860,8 +860,8 @@
               </li>
             </ul>
             <div class="cs_height_40 cs_height_lg_30"></div>
-            <button class="cs_btn cs_style_1 cs_fs_18 w-100">
-              <span>PLACE ORDER</span>
+            <button class="cs_btn cs_style_1 cs_fs_18 w-100" id="pay-now-btn">
+              <span>PAY NOW</span>
             </button>
           </div>
         </div>
@@ -1092,6 +1092,40 @@
       data-cf-beacon='{"version":"2024.11.0","token":"6f756f02820545e3be40ddc6eb6154c3","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
       crossorigin="anonymous"
     ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script>
+  document.getElementById('pay-now-btn').addEventListener('click', async (e) => {
+    e.preventDefault();
+    const MID = "PGTESTPAYUAT86", KEY = "96434309-7796-489d-8924-ab56988a6076", INDEX = "1";
+    const ENDPOINT = "/pg/v1/pay", URL = "https://api-preprod.phonepe.com/apis/pg-sandbox" + ENDPOINT;
+
+    const payload = {
+      merchantId: MID,
+      merchantTransactionId: "TXN" + Date.now(),
+      merchantUserId: "U" + Math.floor(Math.random() * 1000000),
+      amount: 100,
+      redirectUrl: window.location.origin + "/index.html",
+      redirectMode: "REDIRECT",
+      callbackUrl: window.location.origin + "/api/webhook",
+      paymentInstrument: { type: "PAY_PAGE" }
+    };
+
+    const base64 = btoa(JSON.stringify(payload));
+    const verify = CryptoJS.SHA256(base64 + ENDPOINT + KEY).toString() + "###" + INDEX;
+
+    try {
+      const res = await fetch(URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-VERIFY': verify, 'Accept': 'application/json' },
+        body: JSON.stringify({ request: base64 })
+      });
+      const data = await res.json();
+      if (data.success) window.location.href = data.data.instrumentResponse.redirectInfo.url;
+      else alert("Error: " + data.message);
+    } catch (err) { console.error(err); }
+  });
+</script>
   </body>
 
   <!-- Mirrored from html.laralink.com/glowify/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 08 Sep 2025 05:18:18 GMT -->
