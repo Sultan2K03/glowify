@@ -25,7 +25,7 @@
 
         .policy-container {
             max-width: 900px;
-            margin: 300px auto;
+            margin: 200px auto;
             margin-bottom: 5rem;
             background: #fff;
             padding: 40px;
@@ -136,48 +136,47 @@
                 </div>
             </div>
         </div>
-        <div class="cs_main_header">
-            <div class="container">
-                <div class="cs_main_header_in">
-                    <div class="cs_main_header_left">
-                        <div class="cs_brand cs_center company_logo">
-                            <img src="assets/images/logo.png" alt="brand-img" />
-                        </div>
-                    </div>
-                    <div class="cs_main_header_right">
-                        <div class="cs_header_search_form_wrap">
-                            <form action="#" class="cs_header_search_form">
-                                <input type="text" placeholder="Search for products and brands"
-                                    class="cs_header_search_field" />
-                                <button class="cs_header_submit_btn">
-                                    <img src="assets/images/icons/search.svg" alt="" />
-                                </button>
-                            </form>
-                        </div>
-                        <button class="cs_mobile_search_toggle cs_mobile_show" type="button">
-                            <img src="assets/images/icons/search.svg" alt="" />
-                        </button>
-                        <ul class="cs_header_list cs_mp_0">
-                            <li>
-                                <div class="cs_header_credential_btns">
-                                    <a href="login.html"><img src="assets/images/icons/user.svg" alt="" /></a>
-                                    <span>
-                                        <a href="login.html">Log in</a>
-                                    </span>
-                                </div>
-                            </li>
-                            <li>
-                                <button type="button" class="cs_cart_btn">
-                                    <img src="assets/images/icons/bag.svg" alt="" />
-                                    <span class="cs_cart_label cs_accent_bg cs_white_color">3</span>
-                                    <span>My Bag <b>($54.97)</b></span>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+        <!-- <div class="cs_main_header">
+      <div class="container">
+        <div class="cs_main_header_in">
+          <div class="cs_main_header_left">
+            <div class="cs_brand cs_center company_logo">
+              <img src="assets/images/logo.png" alt="brand-img" />
             </div>
+          </div>
+          <div class="cs_main_header_right">
+            <div class="cs_header_search_form_wrap">
+              <form action="#" class="cs_header_search_form">
+                <input type="text" placeholder="Search for products and brands" class="cs_header_search_field" />
+                <button class="cs_header_submit_btn">
+                  <img src="assets/images/icons/search.svg" alt="" />
+                </button>
+              </form>
+            </div>
+            <button class="cs_mobile_search_toggle cs_mobile_show" type="button">
+              <img src="assets/images/icons/search.svg" alt="" />
+            </button>
+            <ul class="cs_header_list cs_mp_0">
+              <li>
+                <div class="cs_header_credential_btns">
+                  <a href="login.html"><img src="assets/images/icons/user.svg" alt="" /></a>
+                  <span>
+                    <a href="login.html">Log in</a>
+                  </span>
+                </div>
+              </li>
+              <li>
+                <button type="button" class="cs_cart_btn">
+                  <img src="assets/images/icons/bag.svg" alt="" />
+                  <span class="cs_cart_label cs_accent_bg cs_white_color">3</span>
+                  <span>My Bag <b>($54.97)</b></span>
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
+    </div> -->
 
         <div class="cs_bottom_header">
             <div class="container">
@@ -510,17 +509,30 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cs_bottom_header_right">
-                        <a href="#" class="cs_header_number_wrap">
+                    <div class="d-flex align-items-center justify-content-between cs_bottom_header_right">
+                        <div class="d-flex align-items-center me-4">
+                            <a href="login.html" class="me-2">
+                                <img src="assets/images/icons/user.svg" alt="User" />
+                            </a>
+                            <span>
+                                <a href="login.html" class="text-decoration-none">Log in</a>
+                            </span>
+                        </div>
+
+                        <a href="tel:+916200085442"
+                            class="cs_header_number_wrap d-flex align-items-center text-decoration-none">
                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-headset">
+                                stroke-linejoin="round" class="lucide lucide-headset me-2">
                                 <path
                                     d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z" />
                                 <path d="M21 16v2a4 4 0 0 1-4 4h-5" />
                             </svg>
-                            <span class="cs_accent_color cs_fs_24 cs_header_number">+91-6200085442</span>
-                            <span class="cs_header_number_text">24/7 Support Center</span>
+                            <div class="d-flex flex-column">
+                                <span class="cs_accent_color cs_fs_24 cs_header_number">+91-6200085442</span>
+                                <span class="cs_header_number_text cs_fs_12" style="font-size: 0.75rem;">24/7 Support
+                                    Center</span>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -528,7 +540,6 @@
         </div>
         <div class="cs_header_overlay_mobile"></div>
     </header>
-
     <div class="policy-container">
         <h1>Cancellation Policy – Cosscent</h1>
 
