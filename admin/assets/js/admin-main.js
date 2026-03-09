@@ -25,6 +25,27 @@
         initializeFormValidation();
     });
 
+
+    // Desktop toggle (collapse icons-only)
+        const sidebar = document.getElementById('sidebar');
+        const main    = document.getElementById('main');
+        const overlay = document.getElementById('overlay');
+
+        $('#menuToggle').on('click', function () {
+            if (window.innerWidth <= 768) {
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('show');
+            } else {
+            sidebar.classList.toggle('collapsed');
+            main.classList.toggle('expanded');
+            }
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('show');
+        });
+        
     /**
      * Set active navigation link based on current page URL
      */
